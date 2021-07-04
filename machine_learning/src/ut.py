@@ -4,12 +4,15 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-03 14:23:57
 LastEditors: lxp
-LastEditTime: 2021-07-04 15:14:49
+LastEditTime: 2021-07-04 22:47:57
 '''
 from c_1_perceptron import Perceptron_numpy, Perceptron_torch
 from c_2_knn import KNN_numpy, KNN
 from c_3_naive_bayes import Native_Bayes
+from c_4_logist_reg import LogisticRegression_numpy
+# sklearn
 from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -44,10 +47,13 @@ knn_ = KNN_numpy()
 # knn_tree = KNN()   # 有疑问
 #native_Bayes = Native_Bayes()  # 有疑问
 native_Bayes = GaussianNB()
-
+dt_tree = DecisionTreeClassifier()
+lg_model = LogisticRegression_numpy()
 # TODO: train the model
 train_and_eval(model_1, 'per_np')
 train_and_eval(model_2, 'per_torch')
 train_and_eval(knn_, "knn")
 #train_and_eval(knn_tree, "knn_tree")
 train_and_eval(native_Bayes, "Native_Bayes")
+train_and_eval(dt_tree, "DecisionTreeClassifier")
+train_and_eval(lg_model, "LogisticRegression_numpy")
