@@ -4,12 +4,22 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-03 15:47:45
 LastEditors: lxp
-LastEditTime: 2021-07-03 16:24:34
+LastEditTime: 2021-07-05 22:48:15
 '''
 import numpy as np
 import random
 from collections import namedtuple
 from pprint import pformat
+from sklearn.neighbors import NearestNeighbors
+
+
+class Knn_sk(NearestNeighbors):
+    def __init__(self, k=3):
+        super().__init__()
+        self.n_neighbors = 3
+
+    def predict(self, X):
+        pass
 
 
 class KNN_numpy(object):
