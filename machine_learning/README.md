@@ -12,3 +12,5 @@
 [前十章内容](https://github.com/Dod-o/Statistical-Learning-Method_Code)
 [微软ml课程](https://github.com/microsoft/ML-For-Beginners)
 [scikit-learn库](https://scikit-learn.org/stable/)
+
+相似度计算: 余弦相似度、皮尔逊相关系数、欧式距离
