@@ -4,7 +4,7 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-03 14:23:57
 LastEditors: lxp
-LastEditTime: 2021-07-05 23:48:28
+LastEditTime: 2021-07-17 21:10:54
 '''
 from c_1_perceptron import Perceptron_numpy, Perceptron_torch
 from c_2_knn import KNN_numpy, KNN, Knn_sk
@@ -17,7 +17,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import LinearSVC
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, AdaBoostClassifier
+# from xgboost import XGBClassifier
+# import lightgbm as lgb
 # data process
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split

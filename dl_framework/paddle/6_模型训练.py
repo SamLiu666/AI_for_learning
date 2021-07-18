@@ -4,7 +4,7 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-16 22:31:48
 LastEditors: lxp
-LastEditTime: 2021-07-16 22:38:46
+LastEditTime: 2021-07-17 19:32:38
 '''
 import paddle
 from paddle.vision.transforms import ToTensor
@@ -38,11 +38,14 @@ loss_fn = paddle.nn.CrossEntropyLoss()
 # 加载训练集 batch_size 设为 64
 train_loader = paddle.io.DataLoader(train_dataset, batch_size=64, shuffle=True)
 mnist.train()
+
+
 # mnist.eval()
 def train():
     epochs = 2
     adam = paddle.optimizer.Adam(learning_rate=0.001,
                                  parameters=lenet.parameters())
+    
     # 用Adam作为优化函数
     for epoch in range(epochs):
         for batch_id, data in enumerate(train_loader()):
@@ -56,6 +59,7 @@ def train():
                 print(
                     "epoch: {}, batch_id: {}, loss is: {}, acc is: {}".format(
                         epoch, batch_id, loss.numpy(), acc.numpy()))
+
             adam.step()
             adam.clear_grad()
 

@@ -4,7 +4,7 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-04 22:45:13
 LastEditors: lxp
-LastEditTime: 2021-07-10 10:08:11
+LastEditTime: 2021-07-17 20:05:06
 '''
 import numpy as np
 import pandas as pd
@@ -114,7 +114,54 @@ class Network_reg_np(object):
                 if (i + 1) % 100 == 0:
                     print('iter {}, loss {}'.format(i, L))
         return losses
-    
+
     def predict(self, x):
         z = self.w * x + self.b
-        
+
+
+def paddle_logic():
+    import paddle.nn as nn
+    import paddle
+    from sklearn.datasets import make_classification
+
+    class LinearPaddleReg(nn.Layer):
+        def __init__(self, input_features, output_features):
+            super(LinearPaddleReg, self).__init__()
+            self.fc1 = nn.Linear(input_features, output_features)
+            self.ac1 = nn.Sigmoid()
+
+        def forward(self, x):
+            x = self.fc1(x)
+            x = self.ac1(x)
+            return x
+
+    data, labels = make_classification(100, 10)
+    linear_reg = LinearPaddleReg(10, 2)
+
+    mse_loss = paddle.nn.loss.CrossEntropyLoss()
+    sgd = paddle.optimizer.SGD(learning_rate=0.001,
+                               parameters=linear_reg.parameters())
+    epochs = 20
+    linear_reg.train()
+    for epoch in range(epochs):
+        batch_id = 0
+        for batch_data, batch_label in zip(data, labels):
+            batch_data = paddle.to_tensor(batch_data, dtype='float32')
+            batch_label = paddle.to_tensor(batch_label, dtype='int64')
+
+            predicts = linear_reg(batch_data)
+            loss = mse_loss(predicts, batch_label)
+            loss.backward()
+            batch_id += 1
+            if batch_id % 25 == 0:
+                print(
+                    "epoch: {}, batch_id: {}, loss is: {} ".format(
+                        epoch, batch_id, loss.numpy()))
+            sgd.step()
+            sgd.clear_grad()
+
+    print("Done")
+
+
+if __name__ == '__main__':
+    paddle_logic()
