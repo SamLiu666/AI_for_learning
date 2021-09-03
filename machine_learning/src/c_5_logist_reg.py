@@ -4,12 +4,48 @@ Version: 2.0
 Autor: lxp
 Date: 2021-07-04 22:45:13
 LastEditors: lxp
-LastEditTime: 2021-07-17 20:05:06
+LastEditTime: 2021-09-03 16:16:21
 '''
 import numpy as np
 import pandas as pd
 import random
 import math
+
+
+class LogisticReressionClassifier:
+    def __init__(self, max_iter=200, learning_rate=0.01):
+        self.max_iter = max_iter
+        self.learning_rate = learning_rate
+        
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+    
+    def fit(self, X, y):
+        X = np.hstack((np.ones((X.shape[0],1)),X))
+        self.weights = np.zeros((X.shape[1], 1))
+        y = np.expand_dims(y, axis=1)
+        
+        for iter_ in range(self.max_iter):
+            h = self.sigmoid(np.dot(X, self.weights))
+            error = y - h
+            self.weights = self.weights + self.learning_rate * np.dot(X.T, error)
+            
+    def predict(self, x):
+        x = np.hstack((np.ones((x.shape[0],1)),x))
+        pred = self.sigmoid(np.dot(x, self.weights))
+        if pred > 0:
+            return 1
+        else:
+            return 0
+    
+    def score(self, X_test, y_test):
+        right = 0
+        X_test = np.hstack((np.ones((X_test.shape[0],1)),X_test))
+        res = np.dot(X_test, self.weights)
+        for (result, y) in zip(res, y_test):
+            if (result > 0 and y == 1) or (result < 0 and y == 0):
+                right += 1
+        return right / len(X_test)
 
 
 class LogisticRegression_numpy(object):
