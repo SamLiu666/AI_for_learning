@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: lxp
+ * @Date: 2021-09-05 10:20:59
+ * @LastEditors: lxp
+ * @LastEditTime: 2021-09-06 09:36:07
+ */
 #include <iostream>
 using namespace std;
 char s[500];

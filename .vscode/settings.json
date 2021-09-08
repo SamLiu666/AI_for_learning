@@ -10,6 +10,14 @@
         "string.h": "c",
         "algorithm": "c",
         "cstdio": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "string": "c",
+        "istream": "c",
+        "limits": "c",
+        "iomanip": "c",
+        "array": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }
