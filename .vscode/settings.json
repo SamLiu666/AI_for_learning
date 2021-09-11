@@ -18,6 +18,8 @@
         "array": "c",
         "tuple": "c",
         "type_traits": "c",
-        "utility": "c"
+        "utility": "c",
+        "deque": "c",
+        "vector": "c"
     }
 }
