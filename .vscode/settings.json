@@ -21,6 +21,8 @@
         "utility": "c",
         "deque": "c",
         "vector": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "initializer_list": "cpp",
+        "stl_vector.h": "c"
     }
 }
