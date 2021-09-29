@@ -23,6 +23,10 @@
         "vector": "c",
         "iostream": "cpp",
         "initializer_list": "cpp",
-        "stl_vector.h": "c"
+        "stl_vector.h": "c",
+        "memory": "c",
+        "fstream": "c",
+        "sstream": "c",
+        "streambuf": "c"
     }
 }
