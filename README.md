@@ -4,7 +4,7 @@
  * @Autor: lxp
  * @Date: 2021-07-02 22:42:40
  * @LastEditors: lxp
- * @LastEditTime: 2021-09-23 17:28:19
+ * @LastEditTime: 2021-10-15 13:36:47
 -->
 
 AI学习记录 -- 按照基础路线学习
@@ -13,8 +13,8 @@ AI学习记录 -- 按照基础路线学习
 
 pip3 install autopep8 -i https://pypi.tuna.tsinghua.edu.cn/simple
 
-C/C++:
 https://github.com/fffaraz/awesome-cpp
+C/C++ 学习:·
 https://github.com/TheAlgorithms/C/tree/master/data_structures
 https://github.com/TheAlgorithms/C-Plus-Plus
 https://github.com/Mzzopublic/C/tree/master/经典示例
