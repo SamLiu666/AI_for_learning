@@ -27,6 +27,7 @@
         "memory": "c",
         "fstream": "c",
         "sstream": "c",
-        "streambuf": "c"
+        "streambuf": "c",
+        "cctype": "cpp"
     }
 }

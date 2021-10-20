@@ -4,17 +4,22 @@
  * @Autor: lxp
  * @Date: 2021-09-02 14:29:30
  * @LastEditors: lxp
- * @LastEditTime: 2021-10-19 17:44:48
+ * @LastEditTime: 2021-10-20 16:44:52
  */
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main() {
-    int i, &ri = i;
-    i = 5; ri = 10;
-    std::cout << i << " " << ri << std::endl;
-    int *p = &i;
-    cout << "p: " << p << " *p " << *p << std::endl;
-    return 0;
+
+    string word;
+    vector<string> text; // empty vector
+    while (cin >> word) {
+        text.push_back(word); // append word to text
+    }
+    for (auto x:text) {
+        cout << "x: " << x;
+    }
+	return 0;
 }
