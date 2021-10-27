@@ -4,42 +4,42 @@ Version: 2.0
 Autor: lxp
 Date: 2021-10-20 13:43:30
 LastEditors: lxp
-LastEditTime: 2021-10-20 13:46:20
+LastEditTime: 2021-10-27 14:34:19
 '''
-from collections import deque
-# Definition for a binary tree node.
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 
 class Solution:
-    def levelOrder(self, root: TreeNode):
-        if not root:
-            return []
-        q = deque()
-        q.append(root)
+    def removeInvalidParentheses(self, s: str):
+        def isValid(s):
+            count = 0
+            for c in s:
+                if c == '(':
+                    count += 1
+                elif c == ')':
+                    count -= 1
+                    if count < 0:
+                        return False
+            return count == 0
+
         ans = []
-        while q:
-            temp = []
-            qlen = len(q)
-            for i in range(qlen):
-                node = q.popleft()
-                temp.append(node.val)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            ans.append(temp)
+        currSet = set([s])
+
+        while True:
+            for ss in currSet:
+                if isValid(ss):
+                    ans.append(ss)
+            if len(ans) > 0:
+                return ans
+            nextSet = set()
+            for ss in currSet:
+                for i in range(len(ss)):
+                    if i > 0 and ss[i] == s[i - 1]:
+                        continue
+                    if ss[i] == '(' or ss[i] == ')':  # 去掉一个括号
+                        nextSet.add(ss[:i] + ss[i + 1:])
+            currSet = nextSet
         return ans
 
 
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = TreeNode(3)
 s = Solution()
-print(s.levelOrder(root))
+print(s.removeInvalidParentheses("()())()"))
