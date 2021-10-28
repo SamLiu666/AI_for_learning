@@ -1,45 +1,27 @@
-'''
-Description: 
-Version: 2.0
-Autor: lxp
-Date: 2021-10-20 13:43:30
-LastEditors: lxp
-LastEditTime: 2021-10-27 14:34:19
-'''
-
+def isPowerOfTwo(n: int) -> bool:
+    return (n & (n - 1)) == 0
 
 class Solution:
-    def removeInvalidParentheses(self, s: str):
-        def isValid(s):
-            count = 0
-            for c in s:
-                if c == '(':
-                    count += 1
-                elif c == ')':
-                    count -= 1
-                    if count < 0:
-                        return False
-            return count == 0
+    def reorderedPowerOf2(self, n: int) -> bool:
+        nums = sorted(list(str(n)))
+        m = len(nums)
+        vis = [False] * m
 
-        ans = []
-        currSet = set([s])
+        def backtrack(idx: int, num: int) -> bool:
+            if idx == m:
+                return isPowerOfTwo(num)
+            for i, ch in enumerate(nums):
+                # 不能有前导零
+                if (num == 0 and ch == '0') or vis[i] or (i > 0 and not vis[i - 1] and ch == nums[i - 1]):
+                    continue
+                vis[i] = True
+                if backtrack(idx + 1, num * 10 + ord(ch) - ord('0')):
+                    return True
+                vis[i] = False
+            return False
 
-        while True:
-            for ss in currSet:
-                if isValid(ss):
-                    ans.append(ss)
-            if len(ans) > 0:
-                return ans
-            nextSet = set()
-            for ss in currSet:
-                for i in range(len(ss)):
-                    if i > 0 and ss[i] == s[i - 1]:
-                        continue
-                    if ss[i] == '(' or ss[i] == ')':  # 去掉一个括号
-                        nextSet.add(ss[:i] + ss[i + 1:])
-            currSet = nextSet
-        return ans
+        return backtrack(0, 0)
 
 
 s = Solution()
-print(s.removeInvalidParentheses("()())()"))
+print(s.reorderedPowerOf2(10))
