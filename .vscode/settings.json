@@ -50,6 +50,9 @@
         "iosfwd": "cpp",
         "new": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "numeric": "cpp",
+        "forward_list": "cpp",
+        "functional": "cpp"
     }
 }
