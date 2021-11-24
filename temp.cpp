@@ -4,7 +4,7 @@
  * @Autor: lxp
  * @Date: 2021-09-02 14:29:30
  * @LastEditors: lxp
- * @LastEditTime: 2021-10-23 14:28:45
+ * @LastEditTime: 2021-11-09 22:44:12
  */
 #include <iostream>
 #include <string>
@@ -20,7 +20,6 @@ int main() {
     p = q;
     cout << "n = " << n << " p = " << p << endl;
     cout << "i = " << i << " q = " << q << endl;
-
 
 	return 0;
 }
