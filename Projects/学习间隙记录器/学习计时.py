@@ -14,7 +14,7 @@ class Action(object):
         self.action_time = 45  # 默认45分钟操作
         self.music = True  # 默认记时结束播放music
         self.FLAG = True  # 默认持续一整天，按q退出
-        self.intervalMin = 1
+        self.intervalMin = 60
         self.musicPath = "Projects\学习间隙记录器\data\骄傲的少年.mp3"
         self.now_time_start = datetime.datetime.now()
         self.now_time_end = datetime.datetime.now()
@@ -45,7 +45,7 @@ class Action(object):
             temp = temp.split()
             self.action_name = temp[0]
             self.action_time = int(temp[1]) * self.intervalMin
-            print("已设定", self.action_name, "时长", self.action_time, "min")
+            print("已设定", self.action_name, "时长", self.action_time // 60, "min")
         except:
             self.FLAG = False
             print("请核对输入格式是否正确")
@@ -63,6 +63,7 @@ class Action(object):
         #     '//*[@id="g_player"]/div[1]/a[2]')
         # playButtun.click()
 
+        webbrowser.open('https://www.baidu.com/')
         pygame.mixer.init()
         # 设置 要播放音乐的绝对路径,绝对路径
         pygame.mixer.music.load(self.musicPath)
