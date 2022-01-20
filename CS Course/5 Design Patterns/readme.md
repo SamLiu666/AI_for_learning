@@ -2,9 +2,12 @@
  * @Author: [lxp]
  * @Date: 2022-01-17 15:58:08
  * @LastEditors: [lxp]
- * @LastEditTime: 2022-01-19 21:24:24
+ * @LastEditTime: 2022-01-20 21:57:56
  * @Description: 
 -->
+
+重点：单例模式、⼯⼚模式、代理模式、策略模式、模板⽅法模式
+
 [图解设计模式](https://design-patterns.readthedocs.io/zh_CN/latest/index.html)
 
 **目标**：能在白纸上画出所有的模式结构和时序图；
