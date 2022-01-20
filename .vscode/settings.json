@@ -53,6 +53,7 @@
         "typeinfo": "cpp",
         "numeric": "cpp",
         "forward_list": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "map": "cpp"
     }
 }

@@ -1,11 +1,4 @@
 /*
- * @Author: [lxp]
- * @Date: 2022-01-17 17:15:07
- * @LastEditors: [lxp]
- * @LastEditTime: 2022-01-17 18:53:34
- * @Description: 
- */
-/*
  * C++ Design Patterns: Abstract Factory
  * Author: Jakub Vojvoda [github.com/JakubVojvoda]
  * 2016
@@ -171,65 +164,3 @@ int main()
   
   return 0;
 }
-// #include <iostream>
-// #include <string>
-// using namespace std;
-
-// class Person{
-// public:
-//     string name;
-//     virtual ~Person(){}
-//     virtual const void action() = 0;  // 纯虚函数，等待派生类填写
-// };
-
-// class Teacher : public Person {
-// public:
-//     // Teacher(string name) {
-//     //     this->name = name;
-//     // }
-//     ~Teacher(){}
-//     const void action() {
-//         cout << "teaching" << endl;
-//     }
-// };
-
-// class Student : public Person {
-// public:
-//     ~Student(){}
-//     const void action() {
-//         cout << "studying" << endl;
-//     }
-// };
-
-// // abstract factory
-// class PersonRole {
-// public:
-//     virtual ~PersonRole(){}
-
-//     virtual Teacher *createPersonRole() = 0;
-//     virtual Student *createStudentRole() = 0;
-// };
-
-// class TeacherFactory : public PersonRole {
-// public:
-//     Teacher *createTeacher() {
-//         return new Teacher();
-//     }
-// };
-
-// class StudentFactory : public PersonRole {
-// public:
-//     Student *createTeacher() {
-//         return new Student();
-//     }
-// };
-
-
-// int main() {
-
-//     TeacherFactory *t = new TeacherFactory(name);
-
-
-//     return 0;
-
-// }
