@@ -1,27 +1,37 @@
-def isPowerOfTwo(n: int) -> bool:
-    return (n & (n - 1)) == 0
-
+'''
+Author: [lxp]
+Date: 2021-10-20 13:43:30
+LastEditors: [lxp]
+LastEditTime: 2022-01-30 10:44:20
+Description: 
+'''
+from typing import List
 class Solution:
-    def reorderedPowerOf2(self, n: int) -> bool:
-        nums = sorted(list(str(n)))
-        m = len(nums)
-        vis = [False] * m
-
-        def backtrack(idx: int, num: int) -> bool:
-            if idx == m:
-                return isPowerOfTwo(num)
-            for i, ch in enumerate(nums):
-                # 不能有前导零
-                if (num == 0 and ch == '0') or vis[i] or (i > 0 and not vis[i - 1] and ch == nums[i - 1]):
-                    continue
-                vis[i] = True
-                if backtrack(idx + 1, num * 10 + ord(ch) - ord('0')):
-                    return True
-                vis[i] = False
-            return False
-
-        return backtrack(0, 0)
+    
+    def helper(self, nums, t):
+        res = 0
+        
+        for n in nums:
+            if n == t:
+                res += 1
+        print("nums: ", nums, " res: ", res)
+        return res
+    
+    def maxScoreIndices(self, nums: List[int]) -> List[int]:
+        d = {}
+        for i in range(len(nums) + 1):
+            left = nums[:i]
+            right = nums[i:]
+            temp = self.helper(left, 0) + self.helper(right, 1)
+            d[i] = temp
+        
+        ans = []
+        maxR = max(d.values())
+        for k,v in d.items():
+            if v == maxR:
+                ans.append(k)
+        return ans
 
 
 s = Solution()
-print(s.reorderedPowerOf2(10))
+print(s.maxScoreIndices([0,0,1,0]))
