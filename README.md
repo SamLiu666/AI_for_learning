@@ -9,7 +9,7 @@
 
 # cloud 云
 
-亚马逊：https://studiolab.sagemaker.aws/users/pxlSam，例子：https://github.com/aws/studio-lab-examples
+亚马逊：https://studiolab.sagemaker.aws/users/pxlSam ， 例子：https://github.com/aws/studio-lab-examples
 
 谷歌colab：https://drive.google.com/drive/search?q=owner:me%20(type:application/vnd.google.colaboratory%20||%20type:application/vnd.google.colab)
 
