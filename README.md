@@ -7,6 +7,15 @@
  * @LastEditTime: 2021-10-15 13:36:47
 -->
 
+# cloud 云
+
+亚马逊：https://studiolab.sagemaker.aws/users/pxlSam，例子：https://github.com/aws/studio-lab-examples
+谷歌colab：https://drive.google.com/drive/search?q=owner:me%20(type:application/vnd.google.colaboratory%20||%20type:application/vnd.google.colab)
+kaggale：
+paddle：
+
+
+
 AI学习记录 -- 按照基础路线学习
 
 极速版： 简历学习法--对照简历学习，做到每一个都了解到方方面面
